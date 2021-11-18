@@ -19,8 +19,12 @@ const ItemSchema = new Schema(
         image: {
             type: String,
             required: true,
-        }
+        },
+        category: {
+            type: String,
+            required: true,
     },
+    }
 );
 
 const Item = model('Item', ItemSchema);

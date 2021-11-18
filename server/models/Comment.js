@@ -7,7 +7,7 @@ const CommentSchema = new Schema(
             type: String,
             required: true
         },
-        commentsText: {
+        commentText: {
             type: String,
             required: 'You need to leave a comment',
             minlength: [1, 'Comment must be at least 1 character long'],
