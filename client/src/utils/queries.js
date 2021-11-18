@@ -1,7 +1,7 @@
 //importing graphql package
 import { gql } from '@apollo/client';
 
-//GET all of MY listed products (for user/my collection).
+//GET my user information and all of MY listed products (for user/my collection).
 export const GET_MY_COLLECTION = gql`
     {
         me {
@@ -21,7 +21,7 @@ export const GET_MY_COLLECTION = gql`
     }
 `
 
-//GET all items. To be used for browse collection.
+//GET all items. To be used for browse collection. GET user information as well, to display reviews (can keep used to display or not).
 export const GET_BROWSE_COLLECTION = gql`
     {    
         items {
@@ -31,11 +31,21 @@ export const GET_BROWSE_COLLECTION = gql`
             price
             image
             Categories
+            user {
+                username
+                userId
+                reviews {
+                    review_text
+                    review_id
+                    username
+                }
+
+            }
         }
     }
 `
 
-//GET order history by user. 
+//GET order history by user. Include items 
 export const GET_ORDER_HISTORY = gql`
     {
         query orderHistory($userID: ID!) {
