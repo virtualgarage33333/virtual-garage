@@ -31,13 +31,14 @@ export const ADD_ITEM = gql`
     mutation addItem(
         $itemName: String!, 
         $description: String!, 
-        $price: Int, $image: String!, 
-        $categories: String) {
-            addItem(itemName: $itemName, description: $description, price: $price, image: $image, categories: $categories) {
+        $price: Int!, 
+        $image: String!, 
+        $category: String!) {
+            addItem(itemName: $itemName, description: $description, price: $price, image: $image, category: $category) {
                 _id
                 description
                 price
-                categories
+                category
                 user {
                     _id
                     username
@@ -53,13 +54,14 @@ export const REMOVE_ITEM = gql`
             _id
             username
             email
-            itemCount
             savedItems {
-                itemId
-                description
-                price
-                image
-                categories
+                Item {
+                    _id
+                    description
+                    price
+                    image
+                    category
+                }
             }
         }
     }
@@ -72,7 +74,7 @@ export const EDIT_ITEM = gql`
         $itemName: String!, 
         $description: String!, 
         $price: Int, $image: String!, 
-        $categories: String
+        $category: String
     ) {
         editItem(
             itemId: $itemId,
@@ -80,13 +82,13 @@ export const EDIT_ITEM = gql`
             description: $description, 
             price: $price, 
             image: $image, 
-            categories: $categories
+            category: $category
         ) {
             _id
             description
             price
             image
-            categories
+            category
         }       
     }
 `;

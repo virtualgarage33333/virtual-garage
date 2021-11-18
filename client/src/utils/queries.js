@@ -9,22 +9,22 @@ export const GET_MY_COLLECTION = gql`
             username
             email
             city
-            ListedProducts {
+            Item {
                 _id
                 itemName
                 description
                 price
                 image
-                Categories
+                Category
             }
         }
     }
-`
+`;
 
 //GET all items. To be used for browse collection. GET user information as well, to display reviews (can keep used to display or not).
 export const GET_BROWSE_COLLECTION = gql`
     {    
-        items {
+        Item {
             _id
             itemName
             description
@@ -34,12 +34,12 @@ export const GET_BROWSE_COLLECTION = gql`
             user {
                 username
                 userId
-                reviews {
-                    review_text
-                    review_id
+                Comment {
+                    _id
+                    commentText
+                    createdAt
                     username
                 }
-
             }
         }
     }
@@ -52,7 +52,7 @@ export const GET_ORDER_HISTORY = gql`
             order(_id: $userID) {
                 _id
                 user_id
-                item_id {
+                Item {
                     itemName
                     description
                     price
@@ -61,4 +61,4 @@ export const GET_ORDER_HISTORY = gql`
             }
         }
     }
-`
+`;
