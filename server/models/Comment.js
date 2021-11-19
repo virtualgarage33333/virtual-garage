@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const dateFormat = require('../utils/Format');
+const dateFormat = require('../utils/dateFormat');
 
 const CommentSchema = new Schema(
     {
@@ -20,6 +20,6 @@ const CommentSchema = new Schema(
         }
     });
 
-    const Comment = model('Comment', CommentsSchema);
+    const Comment = model('Comment', CommentSchema);
     module.exports = Comment;
 
