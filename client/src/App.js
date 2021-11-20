@@ -1,8 +1,7 @@
-import Home from "./pages/Home.jsx";
-
-
+//import Home from "./pages/Home.jsx";
+import ProductList from "./pages/ProductList";
 const App = () => {
-  return <Home />
+  return <ProductList />;
 };
 
 export default App;
