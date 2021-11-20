@@ -62,3 +62,12 @@ export const GET_ORDER_HISTORY = gql`
         }
     }
 `;
+
+//stripe checkout
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($products: [ID]!) {
+    checkout(products: $products) {
+      session
+    }
+  }
+`;
