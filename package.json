@@ -22,5 +22,9 @@
   "homepage": "https://github.com/virtualgarage33333/virtual-garage#readme",
   "devDependencies": {
     "concurrently": "^6.4.0"
+  },
+  "dependencies": {
+    "components": "^0.1.0"
+    
   }
 }
