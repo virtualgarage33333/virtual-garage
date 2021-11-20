@@ -6,8 +6,9 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex: 1 1 160px;
-  padding: 10px;
+  padding: 20px;
   justify-content: space-between;
+  background-color: #f5b5c5;
 `;
 
 const Categories = () => {

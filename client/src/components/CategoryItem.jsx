@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Title = styled.h1`
-  color: white;
+  color: orange;
   margin-bottom: 20px;
 `;
 
@@ -23,7 +23,7 @@ const Button = styled.button`
 
 const Container = styled.div`
   flex: 1 1 25%;
-  margin: 3px;
+  margin: 25px;
   height: 70vh;
   position: relative;
   border: 3px solid black;

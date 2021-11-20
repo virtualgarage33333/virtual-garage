@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   height: 60px;
-  background-color:#d85174;
+  background-color: #d85174;
 `;
 
 const Wrapper = styled.div`
@@ -31,6 +31,10 @@ const Right = styled.div`
 
 const MenuItem = styled.div`
   font-size: 18px;
+  cursor: pointer;
+  &:hover {
+    font-size: 25px;
+  }
 `;
 
 const Navbar = () => {
