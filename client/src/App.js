@@ -9,7 +9,7 @@ import {
 } from '@apollo/client';
 import Home from "./pages/Home.jsx";
 import Footer from "./components/Footer.jsx";
-//import ProductList from "./pages/ProductList";
+import ProductList from "./pages/ProductList";
 import Navbar from "./components/Navbar.jsx";
 import Announcement from "./components/Announcement";
 import { StoreProvider } from "./utils/GlobalState";
@@ -61,6 +61,7 @@ const App = () => {
               {/* <Route exact path="/login" component={Login} /> */}
               <Route exact path="/signup" component={SignupForm} />
               <Route exact path="/success" component={Success} />
+              <Route exact path="/ProductList" component={ProductList} />
               {/* <Route exact path="/orderHistory" component={OrderHistory} /> */}
               {/* <Route exact path="/products/:id" component={Detail} /> */}
               <Route component={NoMatch} />

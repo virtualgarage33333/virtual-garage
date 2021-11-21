@@ -3,7 +3,14 @@ import { useMediaQuery } from 'react-responsive';
 import Burger from './Burger.js';
 import styled from "styled-components";
 
-
+const Logo = styled.h1`
+  font-weight: bold;
+  font-size: 30px;
+  &:hover {
+    font-size: 35px;
+    cursor: pointer;
+  }
+`;
 
 const Container = styled.div`
   height: 60px;
@@ -29,6 +36,13 @@ const Right = styled.div`
   align-items: center;
 `;
 
+const MenuItem = styled.div`
+  font-size: 18px;
+  cursor: pointer;
+  &:hover {
+    font-size: 25px;
+  }
+`;
 
 const Navbar = (props) => {
 
@@ -53,26 +67,17 @@ const Navbar = (props) => {
   return (
     <Container>
       <Wrapper>
-        <Left>
-          {<h1 
-          className={`Logo`}
-          onClick={() => {
-            setCurrentPage(pages[0]);
-          }}>The Garage.</h1>}
+      <Left>
+          <Logo as="a" href="/">The Garage.</Logo>
         </Left>
         {isDesktopOrLaptop && 
           <Right>
-            <>
-            {pages.map((page) => (
-            <div>
-              <p
-              className={`MenuItem`}
-              onClick={() => {
-                setCurrentPage(page);
-              }}>{page.name}</p>
-            </div>
-          ))}
-            </>
+          <>
+            <MenuItem><a href="/ProductList">Collections</a></MenuItem>
+            <MenuItem><a href="/ProductList">My Garage</a></MenuItem>
+            <MenuItem>About Us</MenuItem>
+            <MenuItem>Login/SignUp</MenuItem>
+          </>
           </Right>
         }
         {isNotDesktopOrLaptop && 
