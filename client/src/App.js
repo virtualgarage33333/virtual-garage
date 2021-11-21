@@ -1,36 +1,19 @@
-//import Home from "./pages/Home.jsx";
-//import ProductList from "./pages/ProductList";
-import Product from "./pages/Product";
-//import Cart from "./pages/Cart";
-<Route exact path="/success" component={Success} />
+import React
+//, { useEffect } 
+from 'react';
+// import { useMutation } from './utils/mutations';
 
-function Success() {
-  const [addOrder] = useMutation(ADD_ORDER);
+import Home from "./pages/Home.jsx";
+// import ProductList from "./pages/ProductList";
+// import Product from "./pages/Product";
+// import Cart from "./pages/Cart";
+//import AddItem from "./components/AddItem";
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-  useEffect(() => {
-    async function saveOrder() {
-      const cart = await idbPromise('cart', 'get');
-      const items = cart.map(item => item._id);
-      
-      if (items.length) {
-        const { data } = await addOrder({ variables: { items } });
-        const itemData = data.addOrder.items;
-    
-        itemData.forEach((item) => {
-          idbPromise('cart', 'delete', item);
-        });
-      }
-        
-      setTimeout(() => {
-        window.location.assign('/');
-      }, 3000);
-    }
 
-    saveOrder();
-  }, [addOrder]);
 
 const App = () => {
-  return <Product />;
+  return <Home />;
 };
 
 export default App;
