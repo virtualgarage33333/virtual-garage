@@ -3,6 +3,36 @@ import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar.jsx";
+import { QUERY_CHECKOUT } from '../../utils/queries';
+import { loadStripe } from '@stripe/stripe-js';
+import { useLazyQuery } from '@apollo/client';
+
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+
+//checkout button event handler
+function submitCheckout() {
+  const itemIds = [];
+
+  state.cart.forEach((item) => {
+    for (let i = 0; i < item.purchaseQuantity; i++) {
+      itemIds.push(item._id);
+    }
+
+    getCheckout({
+      variables: { items: itemIds }
+    });
+  });
+};
+
+useEffect(() => {
+  if (data) {
+    stripePromise.then((res) => {
+      res.redirectToCheckout({ sessionId: data.checkout.session });
+    });
+  }
+}, [data]);
+
 
 const Container = styled.div``;
 
@@ -207,7 +237,9 @@ const Cart = () => {
               <SummaryItemText>Total</SummaryItemText>
               <SummaryItemPrice>$ 80</SummaryItemPrice>
             </SummaryItem>
-            <Button>CHECKOUT NOW</Button>
+            <button onClick={submitCheckout}>
+              Checkout
+            </button>
           </Summary>
         </Bottom>
       </Wrapper>

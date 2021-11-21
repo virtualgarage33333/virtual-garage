@@ -31,20 +31,25 @@ const typeDefs = gql`
     },
 
     type Query {
-        categories: [Category]
-        items(category: ID, name: String): [Item]
-        item(_id: ID!): Item
-        users: [User]
+            user: User
+            categories: [Category]
+            items(category: ID, name: String): [Item]
+            item(_id: ID!): Item
+            order(_id: ID!): Order
+            checkout(items: [ID]!): Checkout
     }
     type Mutation {
-        addUser(firstName: String!, lastName: String!, email: String!, password: String!): Auth
-        addOrder(items: [ID]!): Order
-        updateUser(firstName: String, lastName: String, email: String, password: String): User
-        updateItem(_id: ID!, quantity: Int!): Item
+        addUser(name: String!, email: String!, password: String!, city: String!): Auth 
+        addOrder(items: [ID]!) : Order
+        updateUser:(name: String, email: String, password: String, city: String) : User
+        updateItem(_id:ID!) : Item
         login(email: String!, password: String!): Auth
-        addItem(itemName: String!, description: String!, price: Float!, category: ID!): Item
+    }
+
+    type Checkout {
+        session: ID
       }
-    `;
+`;
 
     // export the  typeDefs;
     module.exports = typeDefs;
