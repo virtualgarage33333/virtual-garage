@@ -1,8 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import Navbar from "../components/Navbar.jsx";
-import Announcement from "../components/Announcement";
-import Footer from "../components/Footer";
 
 const Container = styled.div``;
 
@@ -67,9 +64,6 @@ const Button = styled.button`
 const Product = () => {
   return (
     <Container>
-      <Announcement />
-      <Navbar />
-
       <Wrapper>
         <ImgContainer>
           <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
@@ -91,7 +85,6 @@ const Product = () => {
           </AddContainer>
         </InfoContainer>
       </Wrapper>
-      <Footer />
     </Container>
   );
 };

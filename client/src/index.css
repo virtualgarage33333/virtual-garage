@@ -7,6 +7,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a, a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -59,4 +64,22 @@ code {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
   font-size: 20px;
+}
+
+.MenuItem {
+  font-size: 18px;
+}
+
+.MenuItem:hover {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.Logo {
+  font-weight: bold;
+}
+
+.Logo:hover {
+  font-size: 35px;
+  cursor: pointer;
 }
