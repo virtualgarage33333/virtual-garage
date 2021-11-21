@@ -24,7 +24,7 @@
     "concurrently": "^6.4.0"
   },
   "dependencies": {
-    "components": "^0.1.0"
-    
+    "components": "^0.1.0",
+    "react-bootstrap": "^2.0.2"
   }
 }
