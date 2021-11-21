@@ -1,39 +1,34 @@
-// import the gql tagged template function
-const { gql } = require('apollo-server-express');
+const { gql} = require('apollo-server-express');
 
-// create typeDefs
+//  create typeDefs 
 const typeDefs = gql`
     type Category {
         _id: ID
-        name: String
-    }
-   
+        categoryName: String
+    },
     type Item {
         _id: ID
-        name: String
-        description: String
-        image: String
+        itemName: String
         price: Float
         category: Category
-    }
-   
+    },
     type Order {
         _id: ID
+        item: [Item]
         purchaseDate: String
-        items: [Item]
-    }
-   
+    },
+
     type User {
         _id: ID
-        name: String
+        username: String
         email: String
-        orders: [Order]
-    }
+        city: String
 
+    },
     type Auth {
         token: ID
         user: User
-    }
+    },
 
     type Query {
             user: User
@@ -43,7 +38,6 @@ const typeDefs = gql`
             order(_id: ID!): Order
             checkout(items: [ID]!): Checkout
     }
-
     type Mutation {
         addUser(name: String!, email: String!, password: String!, city: String!): Auth 
         addOrder(items: [ID]!) : Order
@@ -57,5 +51,5 @@ const typeDefs = gql`
       }
 `;
 
-// export the typeDefs
-module.exports = typeDefs;
+    // export the  typeDefs;
+    module.exports = typeDefs;
