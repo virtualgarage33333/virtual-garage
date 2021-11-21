@@ -1,8 +1,9 @@
 //import Home from "./pages/Home.jsx";
 //import ProductList from "./pages/ProductList";
-import Product from "./pages/Product";
+//import Product from "./pages/Product";
 //import Cart from "./pages/Cart";
-<Route exact path="/success" component={Success} />
+import AddItem from "./components/AddItem";
+{/* <Route exact path="/success" component={Success} />
 
 function Success() {
   const [addOrder] = useMutation(ADD_ORDER);
@@ -27,10 +28,10 @@ function Success() {
     }
 
     saveOrder();
-  }, [addOrder]);
+  }, [addOrder]); */}
 
 const App = () => {
-  return <Product />;
+  return <AddItem />;
 };
 
 export default App;
