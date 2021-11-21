@@ -2,12 +2,27 @@ import React, { useState } from 'react';
 
 const AddItem = () => {
   const [formState, setFormState] = useState({ name: '', description: '', price: '', image: '', category: '' });
+  const [itemCategories] = useState([
+    { name: 'Automotive', },
+    { name: 'Electronics', },
+    { name: 'Furniture', },
+    { name: 'Kitchenware', },
+    { name: 'Books', },
+    { name: 'Clothing', },
+    { name: 'Fitness', },
+    { name: 'Gardening', },
+    { name: 'Art', },
+  ])
+  
+  const [currentItemCategory, setCurrentItemCategory] = useState(itemCategories[0]);
 
   const { name, description, price, image, category } = formState;
 
-  const handleChange = (e) => {
 
-    if (e.target.name === 'category') {
+
+
+  const handleChange = (e) => {
+    /* if (e.target.name === 'category') {
       if (e.target.value !== 
         'Automotive' ||
         'Electronics' ||
@@ -23,7 +38,7 @@ const AddItem = () => {
         setFormState({ ...formState, [e.target.name]: e.target.value });
         console.log('Handle Form', formState);  
       }
-    }
+    } */
       setFormState({ ...formState, [e.target.name]: e.target.value });
       console.log('Handle Form', formState);
   };
@@ -53,9 +68,21 @@ const AddItem = () => {
           <label htmlFor="image">Image:</label>
           <input name="image" defaultValue={image} onBlur={handleChange} />
         </div>
-        <div>
-          <input list="categories" name="category" defaultValue={category} onBlur={handleChange}></input>
+        <div class="dropdown">
+          <button class="dropbtn">Pick a Category</button>
+          <div class="dropdown-content">
+            {itemCategories.map((category) => (
+              <button 
+              className='hoverPointer'
+              onClick={() => {setCurrentItemCategory(category.name);
+                setFormState({ ...formState, category: category.name });}}
+                >
+                  {category.name}
+                </button>
+            ))}
+          </div>
         </div>
+        <p>Your item will be listed under {formState.category}</p>
         <button data-testid="button" type="submit">Submit</button>
       </form>
     </section>
