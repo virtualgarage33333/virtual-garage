@@ -1,6 +1,8 @@
 import React from "react";
-
+import { useMediaQuery } from 'react-responsive';
+import Burger from './Burger.js';
 import styled from "styled-components";
+
 
 const Container = styled.div`
   height: 60px;
@@ -18,9 +20,6 @@ const Left = styled.div`
   flex: 1;
 `;
 
-const Logo = styled.h1`
-  font-weight: bold;
-`;
 
 const Right = styled.div`
   flex: 2;
@@ -29,27 +28,55 @@ const Right = styled.div`
   align-items: center;
 `;
 
-const MenuItem = styled.div`
-  font-size: 18px;
-  cursor: pointer;
-  &:hover {
-    font-size: 25px;
-  }
-`;
 
-const Navbar = () => {
+const Navbar = (props) => {
+
+  const {
+    pages = [],
+    setCurrentPage,
+    currentPage,
+  } = props;
+
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1224px)'
+  });
+
+  const isNotDesktopOrLaptop = useMediaQuery({
+    query: '(max-width: 1223px)'
+  });
+  //const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
+  //const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+  //const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  //const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
+
   return (
     <Container>
       <Wrapper>
         <Left>
-          <Logo>The Garage.</Logo>
+          {<h1 
+          className={`Logo`}
+          onClick={() => {
+            setCurrentPage(pages[0]);
+          }}>The Garage.</h1>}
         </Left>
-        <Right>
-          <MenuItem>Collections</MenuItem>
-          <MenuItem>My Garage</MenuItem>
-          <MenuItem>About Us</MenuItem>
-          <MenuItem>Login/SignUp</MenuItem>
-        </Right>
+        {isDesktopOrLaptop && 
+          <Right>
+            <>
+            {pages.map((page) => (
+            <div>
+              <p
+              className={`MenuItem`}
+              onClick={() => {
+                setCurrentPage(page);
+              }}>{page.name}</p>
+            </div>
+          ))}
+            </>
+          </Right>
+        }
+        {isNotDesktopOrLaptop && 
+          <Burger></Burger>
+        }
       </Wrapper>
     </Container>
   );

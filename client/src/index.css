@@ -60,3 +60,21 @@ code {
 .dropdown:hover .dropbtn {
   font-size: 20px;
 }
+
+.MenuItem {
+  font-size: 18px;
+}
+
+.MenuItem:hover {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.Logo {
+  font-weight: bold;
+}
+
+.Logo:hover {
+  font-size: 35px;
+  cursor: pointer;
+}

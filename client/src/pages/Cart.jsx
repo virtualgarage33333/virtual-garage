@@ -172,8 +172,6 @@ useEffect(() => {
 
   return (
     <Container>
-      <Announcement />
-      <Navbar />
 
       <Wrapper>
         <Title>YOUR BAG</Title>
@@ -246,7 +244,6 @@ useEffect(() => {
           </Summary>
         </Bottom>
       </Wrapper>
-      <Footer />
     </Container>
   );
 };
