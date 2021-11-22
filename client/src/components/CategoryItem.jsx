@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { mobile } from "../responsive";
+import { Link } from "react-router-dom";
 
 const Title = styled.h1`
   color: orange;
@@ -25,6 +26,7 @@ const Button = styled.button`
 
 const Container = styled.div`
   flex: 1 1 25%;
+  background-color: white;
   margin: 25px;
   height: 70vh;
   position: relative;
@@ -58,11 +60,13 @@ const Info = styled.div`
 const CategoryItem = ({ item }) => {
   return (
     <Container>
-      <Image src={item.img} />
-      <Info>
-        <Title>{item.title}</Title>
-        <Button>SHOP NOW</Button>
-      </Info>
+      <Link to={`/productList/`}>
+        <Image src={item.img} />
+        <Info>
+          <Title>{item.title}</Title>
+          <Button>SHOP NOW</Button>
+        </Info>
+      </Link>
     </Container>
   );
 };
