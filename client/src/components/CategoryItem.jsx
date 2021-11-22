@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { mobile } from "../responsive";
 
 const Title = styled.h1`
   color: orange;
@@ -10,6 +11,7 @@ const Image = styled.img`
   height: 100%;
   object-fit: cover;
   transition: all 0.5s ease;
+  ${mobile({ height: "20vh" })}
 `;
 
 const Button = styled.button`

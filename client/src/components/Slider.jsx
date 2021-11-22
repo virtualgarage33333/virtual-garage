@@ -3,6 +3,7 @@ import { ArrowLeftOutlined, ArrowRightOutlined } from "@material-ui/icons";
 import styled from "styled-components";
 import jumbotron from "../assets/images/the-logo.png";
 import { sliderInfo } from "../data";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   width: 100%;
@@ -10,6 +11,10 @@ const Container = styled.div`
   display: flex;
   overflow: hidden;
   position: relative;
+  ${mobile({ display: "none" })}
+  @media (max-width: 768px) {
+    display: "none";
+  }
 `;
 
 const Arrow = styled.div`
