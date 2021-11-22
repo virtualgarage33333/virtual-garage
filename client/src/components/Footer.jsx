@@ -92,16 +92,24 @@ const Footer = () => {
         </Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
-            <Facebook />
+            <a href="https://www.facebook.com/">
+              <Facebook />
+            </a>
           </SocialIcon>
           <SocialIcon color="E4405F">
-            <Instagram />
+            <a href="https://www.instagram.com/">
+              <Instagram />
+            </a>
           </SocialIcon>
           <SocialIcon color="55ACEE">
-            <Twitter />
+            <a href="https://mobile.twitter.com/i/flow/login">
+              <Twitter />
+            </a>
           </SocialIcon>
           <SocialIcon color="E60023">
-            <Pinterest />
+            <a href="https://www.pinterest.ca/login/">
+              <Pinterest />
+            </a>
           </SocialIcon>
         </SocialContainer>
       </Left>
