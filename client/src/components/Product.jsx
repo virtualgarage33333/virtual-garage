@@ -74,12 +74,6 @@ const Product = ({ item }) => {
         <Icon>
           <ShoppingCartOutlined />
         </Icon>
-        <Icon>
-          <SearchOutlined />
-        </Icon>
-        <Icon>
-          <FavoriteBorderOutlined />
-        </Icon>
       </Info>
     </Container>
   );

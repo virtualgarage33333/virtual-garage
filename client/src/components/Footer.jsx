@@ -8,10 +8,12 @@ import {
   Twitter,
 } from "@material-ui/icons";
 import styled from "styled-components";
+import { mobile } from "../responsive";
 
 const Container = styled.div`
   display: flex;
   background-color: #d85174;
+  ${mobile({ flexDirection: "column" })}
 `;
 
 const Left = styled.div`
@@ -46,7 +48,7 @@ const SocialIcon = styled.div`
 const Center = styled.div`
   flex: 1;
   padding: 20px;
-
+  ${mobile({ display: "none" })}
 `;
 
 const Title = styled.h3`
@@ -69,6 +71,7 @@ const ListItem = styled.li`
 const Right = styled.div`
   flex: 1;
   padding: 20px;
+  ${mobile({ backgroundColor: "#fff8f8" })}
 `;
 
 const ContactItem = styled.div`
@@ -93,29 +96,48 @@ const Footer = () => {
         </Desc>
         <SocialContainer>
           <SocialIcon color="3B5999">
-            <Facebook />
+            <a href="https://www.facebook.com/">
+              <Facebook />
+            </a>
           </SocialIcon>
           <SocialIcon color="E4405F">
-            <Instagram />
+            <a href="https://www.instagram.com/">
+              <Instagram />
+            </a>
           </SocialIcon>
           <SocialIcon color="55ACEE">
-            <Twitter />
+            <a href="https://mobile.twitter.com/i/flow/login">
+              <Twitter />
+            </a>
           </SocialIcon>
           <SocialIcon color="E60023">
-            <Pinterest />
+            <a href="https://www.pinterest.ca/login/">
+              <Pinterest />
+            </a>
           </SocialIcon>
         </SocialContainer>
       </Left>
       <Center>
         <Title id="About">Useful Links</Title>
         <List>
-          <ListItem>BILL</ListItem>
-          <ListItem>ELENORE</ListItem>
-          <ListItem>HARRY</ListItem>
-          <ListItem>JASON</ListItem>
-          <ListItem>SUMANT</ListItem>
-          <ListItem>MICHAEL</ListItem>
-
+          <ListItem>
+            <a href="https://github.com/billgeng">BILL</a>
+          </ListItem>
+          <ListItem>
+            <a href="https://github.com/UofTL">ELENORE</a>
+          </ListItem>
+          <ListItem>
+            <a href="https://github.com/harry-100">HARRY</a>
+          </ListItem>
+          <ListItem>
+            <a href="https://github.com/jasongrossman">JASON</a>
+          </ListItem>
+          <ListItem>
+            <a href="https://github.com/sumantpaldm">SUMANT</a>
+          </ListItem>
+          <ListItem>
+            <a href="https://github.com/mmifs">MICHAEL</a>
+          </ListItem>
         </List>
       </Center>
       <Right>
@@ -127,7 +149,8 @@ const Footer = () => {
           <Phone style={{ marginRight: "10px" }} /> +1 234 56 78
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{ marginRight: "10px" }} /> TEST@test.com
+          <MailOutline style={{ marginRight: "10px" }} />{" "}
+          virtualgarage33333@gmail.com
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
