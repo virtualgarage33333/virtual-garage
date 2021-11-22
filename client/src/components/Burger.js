@@ -21,8 +21,8 @@ const Burger = () => {
         <>{
         show?
         <div onClick={() => {setShow(false)}}>
-            <span>___</span>
-            <span>___</span>
+            <span>___</span><br/>
+            <span>___</span><br/>
             <span>___</span>
         </div>
         :

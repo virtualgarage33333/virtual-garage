@@ -107,13 +107,15 @@ const Footer = () => {
         </SocialContainer>
       </Left>
       <Center>
-        <Title>Useful Links</Title>
+        <Title id="About">Useful Links</Title>
         <List>
           <ListItem>BILL</ListItem>
           <ListItem>ELENORE</ListItem>
           <ListItem>HARRY</ListItem>
           <ListItem>JASON</ListItem>
           <ListItem>SUMANT</ListItem>
+          <ListItem>MICHAEL</ListItem>
+
         </List>
       </Center>
       <Right>

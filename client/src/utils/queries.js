@@ -1,4 +1,4 @@
-//importing graphql package
+/*//importing graphql package
 import { gql } from '@apollo/client';
 
 //GET my user information and all of MY listed products (for user/my collection).
@@ -70,4 +70,4 @@ export const QUERY_CHECKOUT = gql`
       session
     }
   }
-`;
+`;*/
