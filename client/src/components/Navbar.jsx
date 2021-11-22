@@ -46,12 +46,6 @@ const MenuItem = styled.div`
 
 const Navbar = (props) => {
 
-  const {
-    pages = [],
-    setCurrentPage,
-    currentPage,
-  } = props;
-
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1224px)'
   });
@@ -73,10 +67,10 @@ const Navbar = (props) => {
         {isDesktopOrLaptop && 
           <Right>
           <>
-            <MenuItem><a href="/ProductList">Collections</a></MenuItem>
-            <MenuItem><a href="/ProductList">My Garage</a></MenuItem>
-            <MenuItem>About Us</MenuItem>
-            <MenuItem>Login/SignUp</MenuItem>
+            <MenuItem><a href="/productList">Collections</a></MenuItem>
+            <MenuItem><a href="/productList">My Garage</a></MenuItem>
+            <MenuItem><a href="#About">About Us</a></MenuItem>
+            <MenuItem><a href="/signup">Login/SignUp</a></MenuItem>
           </>
           </Right>
         }
