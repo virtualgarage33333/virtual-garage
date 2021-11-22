@@ -10,6 +10,8 @@ import { StoreProvider } from "./utils/GlobalState";
 import SignupForm from "./components/SignupForm.jsx";
 import Success from "./pages/Success";
 import NoMatch from "./pages/NoMatch";
+//import OrderHistory from "./pages/OrderHistory";
+
 // import Cart from "./pages/Cart";
 //import AddItem from "./components/AddItem";
 
@@ -40,9 +42,9 @@ const App = () => {
               <Route exact path="/" component={Home} />
               <Route exact path="/signup" component={SignupForm} />
               <Route exact path="/success" component={Success} />
-              <Route exact path="/ProductList" component={ProductList} />
-              {/* <Route exact path="/login" component={Login} /> */}
+              <Route exact path="/productList" component={ProductList} />
               {/* <Route exact path="/orderHistory" component={OrderHistory} /> */}
+              {/* <Route exact path="/login" component={Login} /> */}
               {/* <Route exact path="/products/:id" component={Detail} /> */}
               <Route component={NoMatch} />
             </Switch>

@@ -67,8 +67,8 @@ const Navbar = (props) => {
         {isDesktopOrLaptop && 
           <Right>
           <>
-            <MenuItem><a href="/ProductList">Collections</a></MenuItem>
-            <MenuItem><a href="/ProductList">My Garage</a></MenuItem>
+            <MenuItem><a href="/productList">Collections</a></MenuItem>
+            <MenuItem><a href="/productList">My Garage</a></MenuItem>
             <MenuItem><a href="#About">About Us</a></MenuItem>
             <MenuItem><a href="/signup">Login/SignUp</a></MenuItem>
           </>
