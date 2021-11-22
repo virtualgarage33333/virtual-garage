@@ -46,12 +46,6 @@ const MenuItem = styled.div`
 
 const Navbar = (props) => {
 
-  const {
-    pages = [],
-    setCurrentPage,
-    currentPage,
-  } = props;
-
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1224px)'
   });
