@@ -1,6 +1,8 @@
 import React from "react";
-import { useMediaQuery } from 'react-responsive';
-import Burger from './Burger.js';
+import { Badge } from "@material-ui/core";
+import { ShoppingCartOutlined } from "@material-ui/icons";
+import { useMediaQuery } from "react-responsive";
+import Burger from "./Burger.js";
 import styled from "styled-components";
 
 const Logo = styled.h1`
@@ -28,7 +30,6 @@ const Left = styled.div`
   flex: 1;
 `;
 
-
 const Right = styled.div`
   flex: 2;
   display: flex;
@@ -45,13 +46,12 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = (props) => {
-
   const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1224px)'
+    query: "(min-width: 1224px)",
   });
 
   const isNotDesktopOrLaptop = useMediaQuery({
-    query: '(max-width: 1223px)'
+    query: "(max-width: 1223px)",
   });
   //const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
   //const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
@@ -61,22 +61,38 @@ const Navbar = (props) => {
   return (
     <Container>
       <Wrapper>
-      <Left>
-          <Logo as="a" href="/">The Garage.</Logo>
+        <Left>
+          <Logo as="a" href="/">
+            The Garage.
+          </Logo>
         </Left>
-        {isDesktopOrLaptop && 
+        {isDesktopOrLaptop && (
           <Right>
-          <>
-            <MenuItem><a href="/productList">Collections</a></MenuItem>
-            <MenuItem><a href="/productList">My Garage</a></MenuItem>
-            <MenuItem><a href="#About">About Us</a></MenuItem>
-            <MenuItem><a href="/signup">Login/SignUp</a></MenuItem>
-          </>
+            <>
+              <MenuItem>
+                <a href="#Collections">Collections</a>
+              </MenuItem>
+              <MenuItem>
+                <a href="/productList">My Garage</a>
+              </MenuItem>
+              <MenuItem>
+                <a href="#About">About Us</a>
+              </MenuItem>
+              <MenuItem>
+                <a href="/signup">Login/SignUp</a>
+              </MenuItem>
+              <MenuItem>
+                <a href="/cart">
+                  {" "}
+                  <Badge badgeContent={4} color="primary">
+                    <ShoppingCartOutlined />
+                  </Badge>
+                </a>
+              </MenuItem>
+            </>
           </Right>
-        }
-        {isNotDesktopOrLaptop && 
-          <Burger></Burger>
-        }
+        )}
+        {isNotDesktopOrLaptop && <Burger></Burger>}
       </Wrapper>
     </Container>
   );

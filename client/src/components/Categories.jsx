@@ -13,7 +13,7 @@ const Container = styled.div`
 
 const Categories = () => {
   return (
-    <Container>
+    <Container id="Collections">
       {categories.map((item) => (
         <CategoryItem item={item} key={item.id} />
       ))}

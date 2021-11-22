@@ -46,7 +46,6 @@ const SocialIcon = styled.div`
 const Center = styled.div`
   flex: 1;
   padding: 20px;
-
 `;
 
 const Title = styled.h3`
@@ -109,13 +108,24 @@ const Footer = () => {
       <Center>
         <Title id="About">Useful Links</Title>
         <List>
-          <ListItem>BILL</ListItem>
-          <ListItem>ELENORE</ListItem>
-          <ListItem>HARRY</ListItem>
-          <ListItem>JASON</ListItem>
-          <ListItem>SUMANT</ListItem>
-          <ListItem>MICHAEL</ListItem>
-
+          <ListItem>
+            <a href="https://github.com/billgeng">BILL</a>
+          </ListItem>
+          <ListItem>
+            <a href="https://github.com/UofTL">ELENORE</a>
+          </ListItem>
+          <ListItem>
+            <a href="https://github.com/harry-100">HARRY</a>
+          </ListItem>
+          <ListItem>
+            <a href="https://github.com/jasongrossman">JASON</a>
+          </ListItem>
+          <ListItem>
+            <a href="https://github.com/sumantpaldm">SUMANT</a>
+          </ListItem>
+          <ListItem>
+            <a href="https://github.com/mmifs">MICHAEL</a>
+          </ListItem>
         </List>
       </Center>
       <Right>
@@ -127,7 +137,8 @@ const Footer = () => {
           <Phone style={{ marginRight: "10px" }} /> +1 234 56 78
         </ContactItem>
         <ContactItem>
-          <MailOutline style={{ marginRight: "10px" }} /> TEST@test.com
+          <MailOutline style={{ marginRight: "10px" }} />{" "}
+          virtualgarage33333@gmail.com
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
       </Right>
