@@ -89,7 +89,7 @@ const Navbar = (props) => {
               <a href="/signup">Login/SignUp</a>
             </MenuItem>
             <MenuItem>
-              <a href="/cart">
+              <a href=" ">
                 <Badge badgeContent={4} color="primary">
                   <ShoppingCartOutlined />
                 </Badge>

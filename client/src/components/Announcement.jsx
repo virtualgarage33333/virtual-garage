@@ -28,6 +28,10 @@ const Container = styled.div`
   }
 `;
 const Announcement = () => {
-  return <Container>*Checkout our Collections......</Container>;
+  return (
+    <Container>
+      <a href="#Collections">*Checkout our Collections......</a>
+    </Container>
+  );
 };
 export default Announcement;
