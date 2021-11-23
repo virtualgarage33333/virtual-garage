@@ -46,7 +46,7 @@ const typeDefs = gql`
         addUser(username: String!, email: String!, password: String!, city: String!): Auth
         addOrder(items: [ID]!): Order
         updateUser(username: String, email: String, password: String, city: String): User
-        updateItem(_id: ID!, quantity: Int!): Item
+        editItem(_id: ID!, itemName: String!, description: String!, price: Float!, category: ID, user: ID): Item
         login(email: String!, password: String!): Auth
         addItem(itemName: String!, description: String!, price: Float!, category: ID, user: ID): Item
       }

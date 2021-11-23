@@ -38,7 +38,8 @@ export const ADD_ITEM = gql`
                 itemName: $itemName, 
                 description: $description, 
                 price: $price, 
-                category: $category) {
+                category: $category,
+                user: $user) {
                     _id
                     description
                     price
@@ -77,26 +78,31 @@ export const REMOVE_ITEM = gql`
 //UPDATE ITEM 
 export const EDIT_ITEM = gql`
     mutation editItem(
-        $itemId: ID!
+        $id: ID!
         $itemName: String!, 
         $description: String!, 
-        $price: Int, $image: String!, 
-        $category: String
-    ) {
-        editItem(
-            itemId: $itemId,
-            itemName: $itemName, 
-            description: $description, 
-            price: $price, 
-            image: $image, 
-            category: $category
-        ) {
-            _id
-            description
-            price
-            image
-            category
-        }       
+        $price: Float!, 
+        $category: ID,
+        $user: ID) {
+            editItem(
+                _id: $id
+                itemName: $itemName, 
+                description: $description, 
+                price: $price, 
+                category: $category,
+                user: $user) {
+                    _id
+                    description
+                    price
+                    user {
+                        _id
+                        username
+                    }
+                    category {
+                        _id
+                        categoryName
+                    }
+                }
     }
 `;
 

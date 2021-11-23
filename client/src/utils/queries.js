@@ -33,6 +33,25 @@ export const GET_MY_COLLECTION = gql`
 //     }
 // `
 
+//get single Item
+export const GET_ITEM = gql`
+    query item($id: ID!) {
+        item(_id: $id) {
+            _id
+            itemName
+            description
+            price
+            category {
+            categoryName
+            }
+            user {
+                _id
+                username
+        }
+    }
+}
+`
+
 
 //get categories
 export const GET_CATEGORY = gql`

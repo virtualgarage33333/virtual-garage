@@ -35,7 +35,7 @@ const resolvers = {
             return await Item.find(params).populate('category');
           },
           item: async (parent, { _id }) => {
-            return await item.findById(_id).populate('category');
+            return await item.findById(_id).populate('item');
           },
           // users: async (parent, args, context) => {
           //   if (context.user) {
@@ -113,7 +113,12 @@ const resolvers = {
                 }
         
                 throw new AuthenticationError('Not logged in');
-              } 
+              },
+            editItem: async(parent, args, context) => {
+              if (context.user) {
+                return await Item.findByIdAndUpdate(context.user._id, args, { new: true });
+              }
+            } 
         }
         
 };
