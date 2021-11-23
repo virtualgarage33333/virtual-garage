@@ -6,7 +6,7 @@ import Navbar from "../components/Navbar.jsx";
 import { QUERY_CHECKOUT } from '../utils/queries';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
-
+import {useDispatch,useSelector} from 'react-redux';
 
 
 const Container = styled.div``;
@@ -143,7 +143,10 @@ const Button = styled.button`
 
 const Cart = () => {
 
-  const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+
+const state = useSelector((state) => {return state});
+
 const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
 //checkout button event handler
@@ -169,6 +172,23 @@ useEffect(() => {
     });
   }
 }, [data]);
+
+const dispatch = useDispatch();
+
+useEffect(() => {
+  async function getCart() {
+    const cart = await idbPromise('cart', 'get');
+    dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
+  };
+
+  if (!state.cart.length) {
+    getCart();
+  }
+}, [state.cart.length, dispatch]);
+
+function toggleCart() {
+  dispatch({ type: TOGGLE_CART });
+}
 
   return (
     <Container>
