@@ -30,7 +30,7 @@ const userSchema = new Schema(
             ref: 'Comment'
             }
         ],
-        item: [
+        Item: [
             {
             type: Schema.Types.ObjectId,
             ref: 'Item'

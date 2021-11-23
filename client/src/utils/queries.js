@@ -4,7 +4,7 @@ import { gql } from '@apollo/client';
 //GET my user information and all of MY listed products (for user/my collection).
 export const GET_MY_COLLECTION = gql`
     {
-        user {
+       query user {
             _id
             username
             email
@@ -18,6 +18,21 @@ export const GET_MY_COLLECTION = gql`
         }
     }
 `;
+
+// export const GET_MY_ITEMS = gql`
+//     {
+//         query myItems($userId: ID!) {
+//             myItems(userId: $userId) {
+//                 _id
+//                 itemName
+//                 description
+//                 price
+//                 category
+//                 }
+//         }
+//     }
+// `
+
 
 //get categories
 export const GET_CATEGORY = gql`
@@ -37,8 +52,7 @@ export const GET_BROWSE_COLLECTION = gql`
             itemName
             description
             price
-            image
-            Categories
+            categories
             user {
                 username
                 userId
@@ -64,7 +78,6 @@ export const GET_BROWSE_COLLECTION = gql`
                     itemName
                     description
                     price
-                    image
                 }
             }
         }
