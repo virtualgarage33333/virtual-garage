@@ -32,18 +32,22 @@ export const ADD_ITEM = gql`
         $itemName: String!, 
         $description: String!, 
         $price: Int!, 
-        $image: String!, 
-        $category: String!) {
-            addItem(itemName: $itemName, description: $description, price: $price, image: $image, category: $category) {
-                _id
-                description
-                price
-                category
-                user {
+        $image: String, 
+        $category: ID) {
+            addItem(
+                itemName: $itemName, 
+                description: $description, 
+                price: $price, 
+                image: $image, 
+                category: $category) {
                     _id
-                    username
+                    description
+                    price
+                    category {
+                        _id
+                        categoryName
+                    }
                 }
-            }
         }
 `;
 
