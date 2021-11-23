@@ -13,7 +13,7 @@ const Container = styled.div`
   position: relative;
   ${mobile({ display: "none" })}
   @media (max-width: 768px) {
-    display: "none";
+    display: none;
   }
 `;
 

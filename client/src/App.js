@@ -9,6 +9,7 @@ import {
 import Home from "./pages/Home.jsx";
 import Footer from "./components/Footer.jsx";
 import ProductList from "./pages/ProductList";
+import Login from "./components/Login.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Announcement from "./components/Announcement";
 import { StoreProvider } from "./utils/GlobalState";
@@ -16,6 +17,7 @@ import SignupForm from "./components/SignupForm.jsx";
 import Success from "./pages/Success";
 import NoMatch from "./pages/NoMatch";
 import { setContext } from "@apollo/client/link/context";
+import AddItem from "./components/AddItem.js";
 //import OrderHistory from "./pages/OrderHistory";
 
 // import Cart from "./pages/Cart";
@@ -51,9 +53,11 @@ const App = () => {
             <Navbar />
             <Switch>
               <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={SignupForm} />
               <Route exact path="/success" component={Success} />
               <Route path="/products/:category" component={ProductList} />
+              <Route path="/mygarage" component={AddItem} />
               {/* <Route exact path="/orderHistory" component={OrderHistory} /> */}
               {/* <Route exact path="/login" component={Login} /> */}
               {/* <Route exact path="/products/:id" component={Detail} /> */}
