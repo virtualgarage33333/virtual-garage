@@ -14,6 +14,10 @@ const OrderSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'User'
         },
+        category: {
+            type: Schema.Types.ObjectId,
+            ref: 'Category'
+        },
 });
 
 const Order = model('Order', OrderSchema);
