@@ -64,10 +64,6 @@ const AddItem = () => {
           <label htmlFor="price">Price:</label>
           <input name="price" defaultValue={price} onBlur={handleChange} />
         </div>
-        <div>
-          <label htmlFor="image">Image:</label>
-          <input name="image" defaultValue={image} onBlur={handleChange} />
-        </div>
         <div class="dropdown">
           <button class="dropbtn">Pick a Category</button>
           <div class="dropdown-content">

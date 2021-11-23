@@ -64,7 +64,6 @@ const MenuItem = styled.div`
 `;
 
 const Navbar = (props) => {
-
   return (
     <Container>
       <Wrapper>
@@ -80,7 +79,7 @@ const Navbar = (props) => {
               <a href="#Collections">Collections</a>
             </MenuItem>
             <MenuItem>
-              <a href="/productList">My Garage</a>
+              <a href="/mygarage">My Garage</a>
             </MenuItem>
             <MenuItem>
               <a href="#About">About Us</a>
