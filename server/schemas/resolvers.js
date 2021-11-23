@@ -5,8 +5,19 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
     Query: {
+        user: async (parent, args, context) => {
+          if (context.user) {
+            const userData = await User.findOne({ _id: context.user._id })
+              .select('-__v -password')
+              .populate('item');
+    
+            return userData;
+          }
+    
+          throw new AuthenticationError('Not logged in');
+        },
         categories: async () => {
-            return Category.find();
+        return Category.find();
         },
         items: async (parent, { category, name }) => {
             const params = {};
@@ -26,20 +37,20 @@ const resolvers = {
           item: async (parent, { _id }) => {
             return await item.findById(_id).populate('category');
           },
-          users: async (parent, args, context) => {
-            if (context.user) {
-              const user = await User.findById(context.user._id).populate({
-                path: 'orders.items',
-                populate: 'category'
-              });
+          // users: async (parent, args, context) => {
+          //   if (context.user) {
+          //     const user = await User.findById(context.user._id).populate({
+          //       path: 'orders.items',
+          //       populate: 'category'
+          //     });
       
-              user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
+          //     user.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
       
-              return user;
-            }
+          //     return user;
+          //   }
       
-            throw new AuthenticationError('Not logged in');
-          },
+          //   throw new AuthenticationError('Not logged in');
+          // },
         orders : async (parent, { _id }, context) => {
             if (context.user) {
                 const user = await User.findById(context.user._id).populate({

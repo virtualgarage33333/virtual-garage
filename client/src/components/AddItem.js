@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+import { ADD_ITEM } from '../utils/mutations';
 
 const AddItem = () => {
   const [formState, setFormState] = useState({ name: '', description: '', price: '', image: '', category: '' });
