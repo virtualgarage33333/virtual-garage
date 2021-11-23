@@ -60,7 +60,7 @@ const Info = styled.div`
 const CategoryItem = ({ item }) => {
   return (
     <Container>
-      <Link to={`/productList/`}>
+      <Link to={`/products/${item.title}`}>
         <Image src={item.img} />
         <Info>
           <Title>{item.title}</Title>

@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Products from "../components/Products";
+import { useLocation } from "react-router";
 
 const Container = styled.div``;
 
@@ -9,10 +10,14 @@ const Title = styled.h1`
 `;
 
 const ProductList = () => {
+  const location = useLocation();
+  const cat = location.pathname.split("/")[2];
+  console.log(cat);
+
   return (
     <Container>
       <Title>Clothing</Title>
-      <Products />
+      <Products cat={cat} />
     </Container>
   );
 };
