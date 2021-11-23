@@ -6,7 +6,7 @@ const { signToken } = require('../utils/auth');
 const resolvers = {
     Query: {
         categories: async () => {
-            return Category.findAll();
+            return Category.find();
         },
         items: async (parent, { category, name }) => {
             const params = {};
@@ -26,7 +26,7 @@ const resolvers = {
           item: async (parent, { _id }) => {
             return await item.findById(_id).populate('category');
           },
-          user: async (parent, args, context) => {
+          users: async (parent, args, context) => {
             if (context.user) {
               const user = await User.findById(context.user._id).populate({
                 path: 'orders.items',
@@ -40,7 +40,7 @@ const resolvers = {
       
             throw new AuthenticationError('Not logged in');
           },
-        order : async (parent, { _id }, context) => {
+        orders : async (parent, { _id }, context) => {
             if (context.user) {
                 const user = await User.findById(context.user._id).populate({
                     path: 'orders.items',
@@ -106,3 +106,5 @@ const resolvers = {
         }
         
 };
+
+module.exports = resolvers;
