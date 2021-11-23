@@ -15,25 +15,30 @@ import { StoreProvider } from "./utils/GlobalState";
 import SignupForm from "./components/SignupForm.jsx";
 import Success from "./pages/Success";
 import NoMatch from "./pages/NoMatch";
-import {setContext} from '@apollo/client/link/context';
+import { setContext } from "@apollo/client/link/context";
 //import OrderHistory from "./pages/OrderHistory";
 
 // import Cart from "./pages/Cart";
 //import AddItem from "./components/AddItem";
-const httpLink = createHttpLink({
-  uri: '/graphql'
-})
 
-const authenticationLink = setContext((_,{headers})=>{
-  const token = localStorage.getItem('id_token')
- return{headers: {
-   ...headers,
-  authorization: token ? `Bearer ${token}` : ''
-}
- }})
+const httpLink = createHttpLink({
+  uri: "http://localhost:3001/graphql",
+});
+
+console.log(httpLink);
+
+const authenticationLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem("id_token");
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
 const client = new ApolloClient({
   link: authenticationLink.concat(httpLink),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 const App = () => {
