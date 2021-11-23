@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { GET_SINGLE_PRODUCT } from '../utils/queries';
+import React, { useState, useEffect } from 'react';
+import { useQuery } from '@apollo/client';
 
 const Container = styled.div``;
 
@@ -62,6 +65,12 @@ const Button = styled.button`
 `;
 
 const Product = () => {
+
+  const [currentItem, setCurrentItem] = useState({})
+  const { loading, data } = useQuery(GET_SINGLE_PRODUCT);
+
+  console.log(data);
+
   return (
     <Container>
       <Wrapper>

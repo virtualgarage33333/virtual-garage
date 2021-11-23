@@ -9,8 +9,10 @@ const typeDefs = gql`
     type Item {
         _id: ID
         itemName: String
+        description: String
         price: Float
         category: Category
+        user: User
     },
     type Order {
         _id: ID
@@ -24,6 +26,7 @@ const typeDefs = gql`
         email: String
         city: String
         orders: [Order]
+        item: [Item]
 
     },
     type Auth {
@@ -35,7 +38,7 @@ const typeDefs = gql`
         categories: [Category]
         items(category: ID, name: String): [Item]
         item(_id: ID!): Item
-        users: [User]
+        user: User
         orders: [Order]
     }
     type Mutation {
