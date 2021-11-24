@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { GET_SINGLE_PRODUCT } from '../utils/queries';
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-//import { Item } from "../../../server/models";
+import { useLocation } from "react-router";
+
 
 const Container = styled.div``;
 
@@ -66,10 +67,14 @@ const Button = styled.button`
 
 const Product = () => {
 
-  const [currentItem, setCurrentItem] = useState({})
   const { loading, data } = useQuery(GET_SINGLE_PRODUCT);
+  const location = useLocation();
+  const cat = location.pathname.split("/")[2];
 
   console.log(data);
+
+  
+
 
   return (
     <Container>
