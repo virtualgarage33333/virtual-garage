@@ -121,9 +121,6 @@ const Footer = () => {
         <Title id="About">Useful Links</Title>
         <List>
           <ListItem>
-            <a href="https://github.com/billgeng">BILL</a>
-          </ListItem>
-          <ListItem>
             <a href="https://github.com/UofTL">ELENORE</a>
           </ListItem>
           <ListItem>
