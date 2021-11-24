@@ -104,3 +104,4 @@ dist
 .tern-port
 # user defined files
 .DS_Store
+.env

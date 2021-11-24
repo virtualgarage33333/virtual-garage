@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "components": "^0.1.0",
+    "dotenv": "^10.0.0",
     "react-bootstrap": "^2.0.2"
   }
 }
