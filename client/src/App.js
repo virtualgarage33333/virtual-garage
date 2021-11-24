@@ -21,15 +21,12 @@ import AddItem from "./components/AddItem.js";
 import Product from "./pages/Product.jsx";
 
 //import OrderHistory from "./pages/OrderHistory";
-
 // import Cart from "./pages/Cart";
 //import AddItem from "./components/AddItem";
 
 const httpLink = createHttpLink({
   uri: "http://localhost:3001/graphql",
 });
-
-console.log(httpLink);
 
 const authenticationLink = setContext((_, { headers }) => {
   const token = localStorage.getItem("id_token");
