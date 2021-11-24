@@ -25,42 +25,12 @@ const Home = () => {
   });
   const [category, setCategory] = useState([]);
   useEffect(() => {
-    console.log(data);
-    console.log(loading);
-    console.log(error);
 
     if (data) {
       setCategory(data.categories);
     }
   }, [data]);
 
-
-  /*
-
-
-const [state, dispatch] = useStoreContext();
-const [currentCategory, setCurrentCategory] = useState({});
-const {loading, error, data, } = useQuery(foo);
-/* useEffect(() => {
-  console.log('data is', data, 'loadingis', loading);
-
-  if (data) {
-    dispatch({
-      type: UPDATE_CATEGORIES,
-      categories: data.categories
-    });
-    data.categories.forEach(category => {
-      idbPromise('categories', 'put', category);
-    });
-  } else if (!loading) {
-    idbPromise('categories', 'get').then(categories => {
-      dispatch({
-        type: UPDATE_CATEGORIES,
-        categories: categories
-      });
-    });
-  }
-},  [data, loading, dispatch]);*/
 
   useEffect(() => {
     //refetch()

@@ -16,10 +16,10 @@ const ItemSchema = new Schema(
             required: true,
             default:0,
         },
-        // image: {
-        //     type: String,
-        //     // required: true,
-        // },
+        image: {
+            type: String,
+            //required: true,
+        },
         category: {
             type: String,
             // required: true,

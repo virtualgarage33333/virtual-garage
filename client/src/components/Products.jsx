@@ -1,6 +1,8 @@
 import styled from "styled-components";
-import { popularProducts } from "../data";
+//import { popularProducts } from "../data";
+import { gql, useQuery } from "@apollo/client";
 import Product from "./Product";
+import { popularProducts } from "../data";
 
 const Container = styled.div`
   padding: 20px;
@@ -10,9 +12,35 @@ const Container = styled.div`
 `;
 
 
+const testProduct = gql`
+{
+  items {
+    _id
+    itemName
+    description
+    price
+    image
+    category{
+      _id
+      categoryName
+    }
+    user{
+      _id
+    }
+  }
 
+}
+`;
 
 const Products = () => {
+  const { error, loading, data } = useQuery(testProduct, {
+    fetchPolicy: "no-cache",
+  });
+
+ 
+  if(loading) return (null)
+  const popularProducts = data.items
+
   return (
     <Container>
       {popularProducts.map((item) => (

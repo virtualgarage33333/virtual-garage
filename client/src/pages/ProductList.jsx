@@ -12,7 +12,7 @@ const Title = styled.h1`
 const ProductList = () => {
   const location = useLocation();
   const cat = location.pathname.split("/")[2];
-  console.log(cat);
+  console.log('cat is', cat);
 
   return (
     <Container>

@@ -1,8 +1,8 @@
-import React from "react";
 import styled from "styled-components";
 import { GET_SINGLE_PRODUCT } from '../utils/queries';
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
+//import { Item } from "../../../server/models";
 
 const Container = styled.div``;
 
@@ -78,7 +78,7 @@ const Product = () => {
           <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
         </ImgContainer>
         <InfoContainer>
-          <Title>Denim Jumpsuit</Title>
+          <Title></Title>
           <Desc>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
             venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
