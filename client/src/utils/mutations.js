@@ -28,30 +28,31 @@ export const ADD_USER = gql`
 
 //ADD item to your personal for sale collection.
 export const ADD_ITEM = gql`
-    mutation addItem(
-        $itemName: String!, 
-        $description: String!, 
-        $price: Float!, 
-        $category: ID,
-        $user: ID) {
-            addItem(
-                itemName: $itemName, 
-                description: $description, 
-                price: $price, 
-                category: $category) {
+mutation addItem(
+    $itemName: String!, 
+    $description: String!, 
+    $price: Float!, 
+    $category: String,
+    $user: ID) {
+        addItem(
+            itemName: $itemName, 
+            description: $description, 
+            price: $price, 
+            category: $category,
+                user: $user) {
+                _id
+                description
+                price
+                user {
                     _id
-                    description
-                    price
-                    user {
-                        _id
-                        username
-                    }
-                    category {
-                        _id
-                        categoryName
-                    }
+                    username
                 }
-        }
+                category {
+                    _id
+                    categoryName
+                }
+            }
+    }
 `;
 
 //DELETE item.

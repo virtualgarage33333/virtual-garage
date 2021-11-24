@@ -1,6 +1,6 @@
 import styled from "styled-components";
 //import { popularProducts } from "../data";
-import { gql, useQuery } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import Product from "./Product";
 import { GET_ITEMS } from "../utils/queries";
 import { popularProducts } from "../data";
@@ -24,7 +24,10 @@ const Products = () => {
   return (
     <Container>
       {popularProducts.map((item) => (
-        <Product item={item} key={item.id} />
+        <Product 
+        item={item} 
+        key={item.id}
+        image={item.image} />
       ))}
     </Container>
   );

@@ -20,10 +20,10 @@ db.once('open', async () => {
 
     await Item.deleteMany();
     const items = await Item.insertMany([
-        { itemName: 'iPhone X', price: 999.99, description: 'The latest iPhone', category: categories[0]._id, image:"https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" },
+        { itemName: 'iPhone X', price: 999.99, description: 'The latest iPhone', category: categories[0]._id, image: 'https://images.macrumors.com/t/1Qx7Upnlkr63vKmeNRIWm3JH3wI=/800x0/smart/https://images.macrumors.com/article-new/2017/09/iphonexdesign.jpg?lossy' },
         { itemName: 'Macbook Pro', price: 1999.99, description: 'The best laptop', category: categories[0]._id },
         { itemName: 'Apple Watch', price: 199.99, description: 'The best watch', category: categories[0]._id },
-        { itemName: 'Chair', price: 99.99, description: 'The best chair', category: categories[1]._id },
+        { itemName: 'Chair', price: 99.99, description: 'The best chair', category: categories[1]._id },    
         { itemName: 'Table', price: 199.99, description: 'The best table', category: categories[1]._id },
         { itemName: 'Bed', price: 299.99, description: 'The best bed', category: categories[1]._id },
         { itemName: 'Shirt', price: 19.99, description: 'The best shirt', category: categories[2]._id },

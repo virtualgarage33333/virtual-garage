@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { ADD_ITEM } from '../utils/mutations';
+import { ADD_ITEM } from '../utils/mutations'; 
+import { GET_ITEMS, QUERY_ME } from '../utils/queries';
 
 const AddItem = () => {
-  const [formState, setFormState] = useState({ name: '', description: '', price: '', image: '', category: '' });
+  const [formState, setFormState] = useState({ itemName: '', description: '', price: '', category: '' });
   const [itemCategories] = useState([
     { name: 'Automotive', },
     { name: 'Electronics', },
@@ -15,13 +16,31 @@ const AddItem = () => {
     { name: 'Gardening', },
     { name: 'Art', },
   ])
-  
+
   const [currentItemCategory, setCurrentItemCategory] = useState(itemCategories[0]);
 
-  const { name, description, price, image, category } = formState;
+  const {itemName, description, price, category } = formState;
 
-
-
+  const [addItem, { error }] = useMutation(ADD_ITEM, {
+    update(cache, { data: { addItem } }) {
+      try {
+        const { Item } = cache.readQuery({ query: GET_ITEMS});
+        cache.writeQuery({
+          query: GET_ITEMS,
+          data: { Item: [addItem, ...Item] }
+        });
+      } catch (e) {
+        console.error(e);
+      }
+  
+      // update me object's cache, appending new thought to the end of the array
+      const { user } = cache.readQuery({ query: QUERY_ME });
+      cache.writeQuery({
+        query: QUERY_ME,
+        data: { user: { ...user, Item: [...user.Item, addItem] } }
+      });
+    }
+  });
 
   const handleChange = (e) => {
     /* if (e.target.name === 'category') {
@@ -45,9 +64,23 @@ const AddItem = () => {
       console.log('Handle Form', formState);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Submit Form', formState);
+    alert("Thank you for submitting a new item!");
+    try {
+      // add item to database
+      await addItem({
+        variables: { formState }
+        
+      });
+  
+      // clear form value
+      setFormState({itemName: '', description: '', price: '', category: ''});
+    } catch (e) {
+      console.error(e);
+    }
+
   };
 
   return (
@@ -56,7 +89,7 @@ const AddItem = () => {
       <form id="contact-form" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
-          <input type="text" name="name" defaultValue={name} onBlur={handleChange} />
+          <input type="text" name="itemName" defaultValue={itemName} onBlur={handleChange} />
         </div>
         <div>
           <label htmlFor="description">Description:</label>
@@ -72,7 +105,7 @@ const AddItem = () => {
             {itemCategories.map((category) => (
               <button 
               className='hoverPointer'
-              onClick={() => {setCurrentItemCategory(category.name);
+              onClick={(e) => {setCurrentItemCategory(category.name);
                 setFormState({ ...formState, category: category.name });}}
                 >
                   {category.name}

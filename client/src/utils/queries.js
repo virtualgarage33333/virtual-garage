@@ -19,9 +19,26 @@ export const GET_MY_COLLECTION = gql`
     }
 `;
 
+export const QUERY_ME = gql`
+  {
+    user {
+      _id
+      username
+      email
+      city
+      Item {
+        _id
+        itemName
+        description
+        price
+        }
+      }
+    }
+`;
+
 export const GET_ITEMS = gql`
-{
-  items {
+query {
+    items {
     _id
     itemName
     description
@@ -35,8 +52,7 @@ export const GET_ITEMS = gql`
       _id
     }
   }
-
-}
+  }
 `;
 
 export const GET_SINGLE_PRODUCT = gql`
