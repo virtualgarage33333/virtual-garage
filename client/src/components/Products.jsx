@@ -2,6 +2,7 @@ import styled from "styled-components";
 //import { popularProducts } from "../data";
 import { gql, useQuery } from "@apollo/client";
 import Product from "./Product";
+import { GET_ITEMS } from "../utils/queries";
 import { popularProducts } from "../data";
 
 const Container = styled.div`
@@ -11,29 +12,8 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-
-const testProduct = gql`
-{
-  items {
-    _id
-    itemName
-    description
-    price
-    image
-    category{
-      _id
-      categoryName
-    }
-    user{
-      _id
-    }
-  }
-
-}
-`;
-
 const Products = () => {
-  const { error, loading, data } = useQuery(testProduct, {
+  const { error, loading, data } = useQuery(GET_ITEMS, {
     fetchPolicy: "no-cache",
   });
 

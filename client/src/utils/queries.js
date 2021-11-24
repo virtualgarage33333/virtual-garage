@@ -19,6 +19,26 @@ export const GET_MY_COLLECTION = gql`
     }
 `;
 
+export const GET_ITEMS = gql`
+{
+  items {
+    _id
+    itemName
+    description
+    price
+    image
+    category{
+      _id
+      categoryName
+    }
+    user{
+      _id
+    }
+  }
+
+}
+`;
+
 export const GET_SINGLE_PRODUCT = gql`
     {
         items {

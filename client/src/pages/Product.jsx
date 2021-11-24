@@ -1,8 +1,10 @@
 import styled from "styled-components";
-import { GET_SINGLE_PRODUCT } from '../utils/queries';
+//import { GET_SINGLE_PRODUCT } from '../utils/queries';
 import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-//import { Item } from "../../../server/models";
+import { useLocation } from "react-router";
+import { gql } from '@apollo/client';
+
 
 const Container = styled.div``;
 
@@ -66,11 +68,24 @@ const Button = styled.button`
 
 const Product = () => {
 
-  const [currentItem, setCurrentItem] = useState({})
-  const { loading, data } = useQuery(GET_SINGLE_PRODUCT);
+  const location = useLocation();
+  const cat = location.pathname.split("/")[2];
+  const GET_SINGLE_PRODUCT = gql`
+{
+  item(_id:"${cat}") 
+  {
+      itemName
+      description
+      price
+  }
+}
+` 
+const { loading, data } = useQuery(GET_SINGLE_PRODUCT);
 
-  console.log(data);
+console.log(data);
 
+//DATA DOES NOT LOAD IN TIME FOR PAGE, NEED TO AWAIT FETCH BEFORE RENDER (UNSURE HOW TO DO THIS)**
+ 
   return (
     <Container>
       <Wrapper>
@@ -78,15 +93,11 @@ const Product = () => {
           <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
         </ImgContainer>
         <InfoContainer>
-          <Title></Title>
+          <Title>{/* {data.item.itemName} */}</Title>
           <Desc>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-            venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-            iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-            tristique tortor pretium ut. Curabitur elit justo, consequat id
-            condimentum ac, volutpat ornare.
+            {/* {data.item.description} */}
           </Desc>
-          <Price>$ 20</Price>
+          <Price>{/* &#36;{data.item.price} */}</Price>
 
           <AddContainer>
             <AmountContainer></AmountContainer>
