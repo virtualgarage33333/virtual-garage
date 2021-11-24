@@ -4,6 +4,8 @@ import {
   ShoppingCartOutlined,
 } from "@material-ui/icons";
 import styled from "styled-components";
+import React, { useState, useEffect } from "react";
+
 
 
 const Info = styled.div`
@@ -68,18 +70,20 @@ const Icon = styled.div`
 
 const Product = ({ item }) => {
 
-
+  //const [currentItem, setCurrentItem] = useState({});
+  
+  const props = item._id
 
   return (
-    <Container>
+    <div><h1>{item.itemName}</h1><button>Clickme</button><Container>
       <Circle />
-      <Image src={item.image} />
+      <Image />
       <Info>
         <Icon>
           <ShoppingCartOutlined />
         </Icon>
       </Info>
-    </Container>
+    </Container></div>
   );
 };
 

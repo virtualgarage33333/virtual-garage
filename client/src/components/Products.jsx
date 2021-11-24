@@ -37,11 +37,8 @@ const Products = () => {
     fetchPolicy: "no-cache",
   });
 
-  const displayItems = []
-
  
   if(loading) return (null)
-  console.log (data);
   const popularProducts = data.items
 
   return (
