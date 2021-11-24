@@ -14,7 +14,7 @@ const Container = styled.div`
 
 const testProduct = gql`
 {
-  items (category:"619d9db99024424b10a05938",name:"Electronics") {
+  items {
     _id
     itemName
     description
@@ -36,8 +36,12 @@ const Products = () => {
   const { error, loading, data } = useQuery(testProduct, {
     fetchPolicy: "no-cache",
   });
+
+  const displayItems = []
+
+ 
   if(loading) return (null)
-  console.log (data)
+  console.log (data);
   const popularProducts = data.items
 
   return (
