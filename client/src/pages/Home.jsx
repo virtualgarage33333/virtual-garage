@@ -10,14 +10,6 @@ import { gql, useQuery } from "@apollo/client";
 import { useStoreContext } from "../utils/GlobalState";
 import { idbPromise } from "../utils/helpers";
 
-const foo = gql`
-  {
-    categories {
-      _id
-      categoryName
-    }
-  }
-`;
 
 const Home = () => {
   const { error, loading, data } = useQuery(GET_CATEGORY, {
@@ -30,12 +22,6 @@ const Home = () => {
       setCategory(data.categories);
     }
   }, [data]);
-
-
-  useEffect(() => {
-    //refetch()
-    console.log("useeffect data is", data);
-  }, [loading]);
 
   return (
     <div>

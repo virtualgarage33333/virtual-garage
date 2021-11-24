@@ -72,10 +72,9 @@ const Product = ({ item }) => {
 
   //const [currentItem, setCurrentItem] = useState({});
   
-  const props = item._id
 
   return (
-    <div><h1>{item.itemName}</h1><button>Clickme</button><Container>
+    <div><a href={`/item/${item._id}`}><h1>{item.itemName}</h1><Container>
       <Circle />
       <Image />
       <Info>
@@ -83,7 +82,7 @@ const Product = ({ item }) => {
           <ShoppingCartOutlined />
         </Icon>
       </Info>
-    </Container></div>
+    </Container></a></div>
   );
 };
 

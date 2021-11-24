@@ -19,6 +19,7 @@ import NoMatch from "./pages/NoMatch";
 import { setContext } from "@apollo/client/link/context";
 import AddItem from "./components/AddItem.js";
 import Product from "./pages/Product.jsx";
+
 //import OrderHistory from "./pages/OrderHistory";
 
 // import Cart from "./pages/Cart";
@@ -44,7 +45,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-const App = () => {
+const App = (item) => {
   return (
     <ApolloProvider client={client}>
       <Router>
@@ -57,8 +58,8 @@ const App = () => {
               <Route exact path="/login" component={Login} />
               <Route exact path="/signup" component={SignupForm} />
               <Route exact path="/success" component={Success} />
-              <Route path="/products/:category" component={ProductList} />
-              <Route path="/foo" component={Product} />
+              <Route path="/products" component={ProductList} />
+              <Route path="/item/" component={Product} />
               <Route path="/mygarage" component={AddItem} />
               {/* <Route exact path="/orderHistory" component={OrderHistory} /> */}
               {/* <Route exact path="/login" component={Login} /> */}
