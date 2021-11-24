@@ -26,16 +26,16 @@ const resolvers = {
               params.category = category;
             }
       
-            if (name) {
-              params.name = {
-                $regex: name
-              };
-            }
-      
+            // if (name) {
+            //   params.name = {
+            //     $regex: name
+            //   };
+            // }
+      console.log(params,"params")
             return await Item.find(params).populate('category');
           },
           item: async (parent, { _id }) => {
-            return await item.findById(_id).populate('category');
+            return await Item.findById(_id).populate('category');
           },
           // users: async (parent, args, context) => {
           //   if (context.user) {
