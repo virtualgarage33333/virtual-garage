@@ -68,7 +68,17 @@ const Icon = styled.div`
   }
 `;
 
-const Product = ({ item }) => {
+const Product = ({item}) => {
+
+  const {
+    itemName,
+    description,
+    image,
+    price,
+    _id,
+    category,
+
+  } = item;
 
   //const [currentItem, setCurrentItem] = useState({});
   
