@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://garage-team:garage-team@cluster0.pkzux.mongodb.net/garage-team?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://harry_shah:Ace13579@cluster-001.zanmk.mongodb.net/virtual-garage?', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
