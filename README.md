@@ -11,20 +11,22 @@
 AS an accumulator of “stuff” 
 I WANT to sell some of my unwanted items to others 
 SO THAT I can declutter my home and live a minimalist lifestyle
+
+
 ## Acceptance Criteria
 
 ```md
-GIVEN an e-commerce platform that uses Redux to manage global state
+GIVEN an e-commerce platform that uses MERN stack to manage all user information
 WHEN I review the app’s store
-THEN I find that the app uses a Redux store instead of the Context API
+THEN I find that the app uses a MERN stack instead of the Context API
 WHEN I review the way the React front end accesses the store
-THEN I find that the app uses a Redux provider
+THEN I find that the app uses a MERN stack provider
 WHEN I review the way the app determines changes to its global state
-THEN I find that the app passes reducers to a Redux store instead of using the Context API
+THEN I find that the app passes reducers instead of using the Context API
 WHEN I review the way the app extracts state data from the store
-THEN I find that the app uses Redux instead of the Context API
+THEN I find that the app uses MERN stack instead of the Context API
 WHEN I review the way the app dispatches actions
-THEN I find that the app uses Redux instead of the Context API
+THEN I find that the app uses MERN stack instead of the Context API
 ```
 ## Build With
 - CSS
@@ -36,32 +38,34 @@ THEN I find that the app uses Redux instead of the Context API
 - Slack
 - Zoom
 - NPM package:
+    - @apollo/client
     - @apollo/react-hooks
+    - @material-ui/core
+    - @material-ui/icons
     - @stripe/stripe-js
     - @testing-library/jest-dom
     - @testing-library/react
     - @testing-library/user-event
-    - apollo-boost
-    - apollo-link-context
     - apollo-server-express
     - bcrypt
     - concurrently
+    - components
+    - dotenv
     - express
     - graphql
-    - graphql-tag
-    - if-env
     - jsonwebtoken
     - jwt-decode
     - mongoose
     - nodemon
     - react
+    - react-bootstrap
     - react-dom
-    - react-redux
+    - react-responsive
     - react-router-dom
     - react-scripts
-    - redux
-    - stripe
-## Install
+    - styled-components
+    - web-vitals
+- ## Install
 
 Clone the repo.
 Run the following line of code in your terminal to install all the needed packages for server, client and app folder: 
