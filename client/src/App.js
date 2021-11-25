@@ -25,7 +25,7 @@ import Product from "./pages/Product.jsx";
 //import AddItem from "./components/AddItem";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
 const authenticationLink = setContext((_, { headers }) => {
